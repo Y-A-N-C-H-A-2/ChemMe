@@ -1,188 +1,357 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Screen 2, Log Entry: the form for one day. Each number box has a red error line under it. -->
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<!--
+  Log Entry: nine short questions shown one at a time, used both for a new day and for editing.
+  Every answer area is in this one layout; LogEntryActivity shows the one that belongs to the current step.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingStart="16dp"
+    android:paddingTop="8dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="16dp">
 
+    <!-- Close, progress and "4/9". -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/buttonClose"
+            style="@style/IconButton"
+            android:layout_marginStart="-8dp"
+            android:contentDescription="@string/button_cancel"
+            android:src="@drawable/ic_close" />
+
+        <ProgressBar
+            android:id="@+id/progressSteps"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="12dp"
+            android:layout_weight="1"
+            android:max="9"
+            android:progressDrawable="@drawable/progress_brand" />
 
         <TextView
-            android:id="@+id/textDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/ink"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:id="@+id/textStep"
+            style="@style/Text.Label"
+            android:textColor="@color/text_secondary" />
+    </LinearLayout>
 
-        <!-- Ratings: a SeekBar runs 0 to 4, and the code adds 1 to get 1 to 5. -->
-        <TextView
-            android:id="@+id/textMoodLabel"
-            style="@style/FieldLabel"
-            android:textColor="@color/ink"
-            android:textSize="15sp" />
-
-        <SeekBar
-            android:id="@+id/seekMood"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:max="4"
-            android:progress="2" />
-
-        <TextView
-            android:id="@+id/textEnergyLabel"
-            style="@style/FieldLabel"
-            android:textColor="@color/ink"
-            android:textSize="15sp" />
-
-        <SeekBar
-            android:id="@+id/seekEnergy"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:max="4"
-            android:progress="2" />
-
-        <TextView
-            android:id="@+id/textAnxietyLabel"
-            style="@style/FieldLabel"
-            android:textColor="@color/ink"
-            android:textSize="15sp" />
-
-        <SeekBar
-            android:id="@+id/seekAnxiety"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:max="4"
-            android:progress="2" />
-
-        <TextView style="@style/FieldLabel" android:text="@string/label_sleep" />
-
-        <EditText
-            android:id="@+id/editSleep"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="7.5"
-            android:importantForAutofill="no"
-            android:inputType="numberDecimal" />
-
-        <TextView android:id="@+id/errorSleep" style="@style/FieldError" />
-
-        <TextView style="@style/FieldLabel" android:text="@string/label_caffeine" />
-
-        <EditText
-            android:id="@+id/editCaffeine"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="0"
-            android:importantForAutofill="no"
-            android:inputType="number" />
-
-        <TextView android:id="@+id/errorCaffeine" style="@style/FieldError" />
-
-        <TextView style="@style/FieldLabel" android:text="@string/label_exercise" />
-
-        <EditText
-            android:id="@+id/editExercise"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="0"
-            android:importantForAutofill="no"
-            android:inputType="number" />
-
-        <TextView android:id="@+id/errorExercise" style="@style/FieldError" />
-
-        <TextView style="@style/FieldLabel" android:text="@string/label_outdoor" />
-
-        <EditText
-            android:id="@+id/editOutdoor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="0"
-            android:importantForAutofill="no"
-            android:inputType="number" />
-
-        <TextView android:id="@+id/errorOutdoor" style="@style/FieldError" />
-
-        <TextView style="@style/FieldLabel" android:text="@string/label_meals" />
-
-        <EditText
-            android:id="@+id/editMeals"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="3"
-            android:importantForAutofill="no"
-            android:inputType="number" />
-
-        <TextView android:id="@+id/errorMeals" style="@style/FieldError" />
-
-        <TextView style="@style/FieldLabel" android:text="@string/label_supplements" />
-
-        <CheckBox
-            android:id="@+id/checkVitaminD"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/supplement_vitamin_d" />
-
-        <CheckBox
-            android:id="@+id/checkB12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/supplement_b12" />
-
-        <CheckBox
-            android:id="@+id/checkIron"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/supplement_iron" />
-
-        <TextView style="@style/FieldLabel" android:text="@string/label_note" />
-
-        <EditText
-            android:id="@+id/editNote"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:importantForAutofill="no"
-            android:inputType="textMultiLine|textCapSentences"
-            android:maxLength="300"
-            android:minLines="2" />
-
-        <TextView android:id="@+id/errorNote" style="@style/FieldError" />
-
-        <TextView
-            android:id="@+id/textDaylight"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/daylight_unavailable"
-            android:textColor="@color/teal"
-            android:textSize="14sp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
 
-            <Button
-                android:id="@+id/buttonCancel"
-                style="@style/SecondaryButton"
-                android:layout_width="0dp"
-                android:layout_height="52dp"
-                android:layout_marginEnd="6dp"
-                android:layout_weight="1"
-                android:text="@string/button_cancel" />
+            <!-- The character asks the question. -->
+            <TextView
+                android:id="@+id/textQuestion"
+                style="@style/Bubble"
+                android:layout_width="match_parent" />
 
-            <Button
-                android:id="@+id/buttonSave"
-                style="@style/PrimaryButton"
-                android:layout_width="0dp"
-                android:layout_height="52dp"
-                android:layout_marginStart="6dp"
-                android:layout_weight="1"
-                android:text="@string/button_save" />
+            <ImageView
+                android:id="@+id/imageMascot"
+                android:layout_width="104dp"
+                android:layout_height="104dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="16dp"
+                android:importantForAccessibility="no" />
+
+            <!-- Steps 1 to 3: mood, energy, anxiety on a 1 to 5 scale. -->
+            <LinearLayout
+                android:id="@+id/panelScale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView android:id="@+id/scale1" style="@style/ScaleOption" android:text="1" />
+                    <TextView android:id="@+id/scale2" style="@style/ScaleOption" android:text="2" />
+                    <TextView android:id="@+id/scale3" style="@style/ScaleOption" android:text="3" />
+                    <TextView android:id="@+id/scale4" style="@style/ScaleOption" android:text="4" />
+                    <TextView android:id="@+id/scale5" style="@style/ScaleOption" android:text="5" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textScaleLow"
+                        style="@style/Text.Caption"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        android:id="@+id/textScaleHigh"
+                        style="@style/Text.Caption"
+                        android:textColor="@color/text_secondary" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textScaleValue"
+                    style="@style/Text.H2"
+                    android:layout_marginTop="16dp" />
+            </LinearLayout>
+
+            <!-- Steps 4, 5, 6 and 8: a number changed with minus and plus, so it can never be out of range. -->
+            <LinearLayout
+                android:id="@+id/panelStepper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/buttonMinus"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:background="@drawable/bg_circle_brand_soft"
+                        android:contentDescription="@string/button_less"
+                        android:padding="16dp"
+                        android:src="@drawable/ic_minus"
+                        app:tint="@color/text_brand" />
+
+                    <LinearLayout
+                        android:layout_width="136dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textStepperValue"
+                            style="@style/Text.Number" />
+
+                        <TextView
+                            android:id="@+id/textStepperUnit"
+                            style="@style/Text.BodySmall"
+                            android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/buttonPlus"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:background="@drawable/bg_circle_brand"
+                        android:contentDescription="@string/button_more"
+                        android:padding="16dp"
+                        android:src="@drawable/ic_plus"
+                        app:tint="@color/text_on_brand" />
+                </LinearLayout>
+
+                <!-- Shortcut chips such as "7 h"; filled in code for the current step. -->
+                <com.example.chemme.ui.FlowLayout
+                    android:id="@+id/quickChips"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:centered="true" />
+
+                <TextView
+                    android:id="@+id/textStepperHint"
+                    style="@style/Text.BodySmall"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:textColor="@color/text_secondary" />
+            </LinearLayout>
+
+            <!-- Step 8 only: supplements under the meals stepper. -->
+            <LinearLayout
+                android:id="@+id/panelSupplements"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/Text.Label"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/label_supplements"
+                    android:textColor="@color/text_secondary" />
+
+                <com.example.chemme.ui.FlowLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:centered="true">
+
+                    <TextView android:id="@+id/chipVitaminD" style="@style/Chip" android:text="@string/supplement_vitamin_d" />
+                    <TextView android:id="@+id/chipB12" style="@style/Chip" android:text="@string/supplement_b12" />
+                    <TextView android:id="@+id/chipIron" style="@style/Chip" android:text="@string/supplement_iron" />
+                </com.example.chemme.ui.FlowLayout>
+            </LinearLayout>
+
+            <!-- Step 7: time outdoors, plus today's daylight from the location. -->
+            <LinearLayout
+                android:id="@+id/panelOutdoor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.example.chemme.ui.FlowLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:centered="true">
+
+                    <TextView android:id="@+id/chipOutdoor0" style="@style/Chip" android:text="@string/outdoor_none" />
+                    <TextView android:id="@+id/chipOutdoor1" style="@style/Chip" android:text="@string/outdoor_short" />
+                    <TextView android:id="@+id/chipOutdoor2" style="@style/Chip" android:text="@string/outdoor_medium" />
+                    <TextView android:id="@+id/chipOutdoor3" style="@style/Chip" android:text="@string/outdoor_long" />
+                </com.example.chemme.ui.FlowLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_card_alt"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_day_empty"
+                        android:importantForAccessibility="no"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_sun"
+                        app:tint="@color/text_brand" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textDaylight"
+                            style="@style/Text.Title"
+                            android:layout_width="match_parent"
+                            android:text="@string/daylight_unavailable" />
+
+                        <TextView
+                            android:id="@+id/textDaylightNote"
+                            style="@style/Text.BodySmall"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="4dp"
+                            android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/buttonLocationSettings"
+                    style="@style/GhostButton"
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/button_open_settings"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <!-- Step 9: optional note. -->
+            <LinearLayout
+                android:id="@+id/panelNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/editNote"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_field"
+                    android:fontFamily="@font/nunito_medium"
+                    android:gravity="top"
+                    android:hint="@string/hint_note"
+                    android:importantForAutofill="no"
+                    android:inputType="textMultiLine|textCapSentences"
+                    android:minLines="4"
+                    android:padding="16dp"
+                    android:textColor="@color/text_primary"
+                    android:textColorHint="@color/text_secondary"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/textNoteCount"
+                    style="@style/Text.Caption"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@color/text_secondary" />
+            </LinearLayout>
         </LinearLayout>
+    </ScrollView>
+
+    <!-- Validation message: shown above the buttons when something has to be fixed. -->
+    <TextView
+        android:id="@+id/textError"
+        style="@style/Text.Label"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/bg_banner_error"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="12dp"
+        android:textColor="@color/status_error"
+        android:visibility="gone"
+        app:drawableStartCompat="@drawable/ic_alert"
+        app:drawableTint="@color/status_error" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonBack"
+            style="@style/SecondaryButton"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:text="@string/button_back" />
+
+        <Button
+            android:id="@+id/buttonNext"
+            style="@style/PrimaryButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="@string/button_next" />
     </LinearLayout>
-</ScrollView>
+</LinearLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One character card in "Who's been around" on Home. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="4dp"
+    android:layout_marginEnd="4dp"
+    android:layout_weight="1"
+    android:background="@drawable/bg_card_click"
+    android:elevation="2dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <ImageView
+        android:id="@+id/imageMascot"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:importantForAccessibility="no" />
+
+    <TextView
+        android:id="@+id/textName"
+        style="@style/Text.Title"
+        android:layout_marginTop="4dp" />
+
+    <TextView
+        android:id="@+id/textDays"
+        style="@style/Text.Caption"
+        android:textColor="@color/text_secondary" />
+</LinearLayout>

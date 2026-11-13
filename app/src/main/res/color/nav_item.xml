@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Bottom navigation: the current tab is drawn in the brand colour. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/text_brand" android:state_selected="true" />
+    <item android:color="@color/text_secondary" />
+</selector>

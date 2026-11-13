@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Coloured circle used as the face of one chemical character. -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
-    <solid android:color="#8D6E63" />
-</shape>
+<!-- Blob mascot for Addy (adenosine). Generated from the Figma design; scales to any size. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    <path android:fillColor="#B79CFF" android:pathData="M50.00,13.90 C60.14,13.90 72.57,15.10 80.41,21.11 C88.24,27.13 96.53,39.92 97.00,50.00 C97.47,60.08 91.07,74.45 83.23,81.57 C75.40,88.70 61.08,92.75 50.00,92.75 C38.92,92.75 24.60,88.70 16.77,81.57 C8.93,74.45 2.53,60.08 3.00,50.00 C3.47,39.92 11.76,27.13 19.59,21.11 C27.43,15.10 39.86,13.90 50.00,13.90 Z" />
+    <path android:fillColor="#221B3A" android:pathData="M32.5,46 a5.5,5.5 0 0,0 11,0 Z M56.5,46 a5.5,5.5 0 0,0 11,0 Z" />
+    <path android:fillColor="#221B3A" android:pathData="M46,62 a4,5 0 1,0 8,0 a4,5 0 1,0 -8,0" />
+</vector>

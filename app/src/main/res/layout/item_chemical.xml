@@ -1,41 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- One row in the Chemical Library: face, "Corty · Cortisol" and the category. -->
+<!-- One library card: the character, its name, the chemical and its category. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
-    android:background="@drawable/bg_card"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:padding="14dp">
+    android:layout_margin="6dp"
+    android:background="@drawable/bg_card_click"
+    android:elevation="2dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/imageMascot"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:importantForAccessibility="no" />
 
     <TextView
-        android:id="@+id/face"
-        style="@style/Face"
-        android:layout_width="44dp"
-        android:layout_height="44dp"
-        android:textSize="18sp" />
+        android:id="@+id/textName"
+        style="@style/Text.Title"
+        android:layout_marginTop="8dp" />
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
+    <TextView
+        android:id="@+id/textChemical"
+        style="@style/Text.BodySmall"
+        android:gravity="center"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textColor="@color/text_secondary" />
 
-        <TextView
-            android:id="@+id/textName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/ink"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textCategory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/grey"
-            android:textSize="14sp" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textCategory"
+        style="@style/Text.Caption"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_pill_alt"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:paddingStart="8dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="4dp"
+        android:textColor="@color/text_secondary" />
 </LinearLayout>

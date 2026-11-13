@@ -4,80 +4,183 @@
     <string name="app_name">ChemMe</string>
     <string name="disclaimer">ChemMe is educational and does not give medical advice.</string>
 
-    <!-- Screen titles -->
-    <string name="title_log_entry">Log today</string>
-    <string name="title_edit_entry">Edit entry</string>
-    <string name="title_insights">Insights</string>
-    <string name="title_insights_date">Insights · %1$s</string>
+    <!-- Screen titles and navigation -->
     <string name="title_history">History</string>
+    <string name="title_trends">Trends</string>
     <string name="title_library">Chemical Library</string>
     <string name="title_settings">Settings</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_library">Library</string>
+
+    <!-- Buttons used on several screens -->
+    <string name="button_log_today">Log today</string>
+    <string name="button_edit">Edit</string>
+    <string name="button_delete">Delete</string>
+    <string name="button_done">Done</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_back">Back</string>
+    <string name="button_next">Next</string>
+    <string name="button_less">Less</string>
+    <string name="button_more">More</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title">Meet your body\'s chemistry crew</string>
+    <string name="onboarding_text">Log your day in under a minute. We\'ll tell you which of us showed up, and why.</string>
+    <string name="onboarding_start">Get started</string>
+    <string name="onboarding_how_title">How ChemMe works</string>
+    <string name="onboarding_step1_title">Log your day</string>
+    <string name="onboarding_step1_text">Mood, sleep, caffeine, movement, daylight and food. One quick question at a time.</string>
+    <string name="onboarding_step2_title">Meet who showed up</string>
+    <string name="onboarding_step2_text">We explain which body chemicals are linked to your habits.</string>
+    <string name="onboarding_step3_title">Check the source</string>
+    <string name="onboarding_step3_text">Every explanation links to a trusted health source.</string>
+    <string name="onboarding_disclaimer">ChemMe is educational. We don\'t measure your chemical levels and we don\'t give medical advice.</string>
+    <string name="onboarding_understood">Sounds good</string>
+    <string name="onboarding_permission_text">Can I peek at where you are? I only use it to work out today\'s daylight hours. It\'s never saved.</string>
+    <string name="onboarding_location_note">Only for sunrise and sunset times</string>
+    <string name="onboarding_reminder_note">A nudge at %1$s to log your day</string>
+    <string name="onboarding_finish">Let\'s go</string>
+    <string name="onboarding_not_now">Not now</string>
 
     <!-- Home -->
-    <string name="home_greeting">Hi, I am Sera!\nHow was today?</string>
-    <string name="home_not_logged">Today: not logged yet</string>
-    <string name="home_logged">Today is logged: mood %1$d/5, sleep %2$s</string>
-    <string name="button_log_today">Log today</string>
-    <string name="button_edit_today">Edit today</string>
-    <string name="button_history">History</string>
-    <string name="button_library">Chemical Library</string>
-    <string name="button_settings">Settings</string>
+    <string name="home_hello">Hey there</string>
+    <string name="home_greeting">Hi, I\'m Sera! How was today?</string>
+    <string name="home_logged_with_insight">I showed up today. Want to know why?</string>
+    <string name="home_logged_no_insight">Today is logged. Nothing unusual to explain!</string>
+    <string name="button_see_insights">See insights</string>
+    <string name="home_this_week">This week</string>
+    <string name="home_visitors">Who\'s been around</string>
+    <plurals name="days">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
 
-    <!-- Log entry -->
-    <string name="label_mood">Mood: %1$d/5</string>
-    <string name="label_energy">Energy: %1$d/5</string>
-    <string name="label_anxiety">Anxiety: %1$d/5</string>
-    <string name="label_sleep">Sleep (hours)</string>
-    <string name="label_caffeine">Caffeine (cups)</string>
-    <string name="label_exercise">Exercise (minutes)</string>
-    <string name="label_outdoor">Outdoors (minutes)</string>
-    <string name="label_meals">Meals eaten</string>
+    <!-- Summary chips (Home and Insights) -->
+    <string name="chip_mood">Mood %1$d/5</string>
+    <string name="chip_energy">Energy %1$d/5</string>
+    <string name="chip_anxiety">Anxiety %1$d/5</string>
+    <string name="chip_sleep">Sleep %1$s</string>
+    <plurals name="coffees">
+        <item quantity="one">%d coffee</item>
+        <item quantity="other">%d coffees</item>
+    </plurals>
+
+    <!-- Log entry: one question per step -->
+    <string name="step_count">%1$d/%2$d</string>
+    <string name="question_mood">How was your mood today?</string>
+    <string name="question_energy">How much energy did you have? I help set the pace.</string>
+    <string name="question_anxiety">How anxious did you feel? No judgement, I get jumpy too.</string>
+    <string name="question_sleep">How long did you sleep? I clear out while you snooze.</string>
+    <string name="question_caffeine">How many coffees, teas or energy drinks? Be honest, I can tell.</string>
+    <string name="question_exercise">How much did you move today? Walking counts!</string>
+    <string name="question_outdoor">How long were you outside in daylight?</string>
+    <string name="question_food">How many meals did you eat? Any supplements?</string>
+    <string name="question_note">Anything else you want to remember about today?</string>
+    <string name="scale_mood_low">Rough</string>
+    <string name="scale_mood_high">Great</string>
+    <string name="scale_energy_low">Drained</string>
+    <string name="scale_energy_high">Buzzing</string>
+    <string name="scale_anxiety_low">Calm</string>
+    <string name="scale_anxiety_high">Very anxious</string>
+    <string-array name="mood_words">
+        <item>Rough</item>
+        <item>Not great</item>
+        <item>Okay</item>
+        <item>Pretty good</item>
+        <item>Great</item>
+    </string-array>
+    <string-array name="energy_words">
+        <item>Drained</item>
+        <item>Low</item>
+        <item>Steady</item>
+        <item>Lively</item>
+        <item>Buzzing</item>
+    </string-array>
+    <string-array name="anxiety_words">
+        <item>Calm</item>
+        <item>A little tense</item>
+        <item>Tense</item>
+        <item>Anxious</item>
+        <item>Very anxious</item>
+    </string-array>
+    <string name="unit_hours">hours</string>
+    <string name="unit_cups">cups</string>
+    <string name="unit_minutes">minutes</string>
+    <string name="unit_meals">meals</string>
+    <string name="quick_hours">%1$d h</string>
+    <string name="quick_minutes">%1$d min</string>
+    <string name="hint_caffeine">Coffee, tea, cola and energy drinks all count.</string>
+    <string name="outdoor_none">Not at all</string>
+    <string name="outdoor_short">Under 20 min</string>
+    <string name="outdoor_medium">20 to 60 min</string>
+    <string name="outdoor_long">Over an hour</string>
     <string name="label_supplements">Supplements taken</string>
     <string name="supplement_vitamin_d">Vitamin D</string>
     <string name="supplement_b12">Vitamin B12</string>
     <string name="supplement_iron">Iron</string>
-    <string name="label_note">Note (optional)</string>
-    <string name="daylight_value">Daylight today: %1$s (from location)</string>
+    <string name="hint_note">Optional</string>
+    <string name="note_count">%1$d/%2$d</string>
+    <string name="daylight_value">Daylight today: %1$s</string>
+    <string name="daylight_value_note">Worked out from your location. Never saved.</string>
     <string name="daylight_searching">Daylight today: finding your location…</string>
     <string name="daylight_unavailable">Daylight today: not available</string>
-    <string name="daylight_off">Daylight today: location is switched off in Settings</string>
-    <string name="button_cancel">Cancel</string>
-    <string name="button_save">Save</string>
-    <string name="message_fix_errors">Please fix the fields marked in red. Nothing was saved.</string>
+    <string name="daylight_unavailable_note">I couldn\'t get a location. Your entry still saves without it.</string>
+    <string name="daylight_off_note">Location is switched off. Your entry still saves without it.</string>
+    <string name="button_open_settings">Turn on in Settings</string>
+    <string name="button_save">Save my day</string>
+    <string name="message_note_too_long">Notes can be up to %1$d characters. Nothing was saved.</string>
+    <string name="message_fix_errors">Something doesn\'t look right: %1$s. Nothing was saved.</string>
 
     <!-- Insights -->
     <string name="banner_saved">Entry saved</string>
     <string name="banner_updated">Entry updated</string>
-    <string name="insights_summary">Mood %1$d/5 · Energy %2$d/5 · Anxiety %3$d/5 · Sleep %4$s · %5$d coffees</string>
-    <string name="insights_empty">No insight rules matched this day. Nothing unusual to explain.</string>
-    <string name="insights_hint">Tap a card for the chemical and its source</string>
+    <string name="insights_heading">Who showed up today</string>
+    <string name="insights_empty">Nothing unusual to explain today. Looks like a pretty balanced day!</string>
     <string name="insight_title">%1$s · %2$s</string>
-    <string name="button_edit">Edit</string>
-    <string name="button_delete">Delete</string>
-    <string name="button_done">Done</string>
+    <string name="source_label">Source: %1$s</string>
+    <string name="note_label">Note: %1$s</string>
     <string name="dialog_delete_title">Delete this entry?</string>
-    <string name="dialog_delete_message">The entry and its insights will be removed. This cannot be undone.</string>
+    <string name="dialog_delete_message">The entry and its insights will be removed. This can\'t be undone.</string>
     <string name="message_deleted">Entry deleted</string>
 
     <!-- History -->
     <string name="history_row">Mood %1$d/5 · Sleep %2$s</string>
+    <string name="history_more">+%1$d</string>
     <string name="history_empty_title">No entries yet</string>
-    <string name="history_empty_text">Log your first day and I will explain the chemistry.</string>
-    <string name="button_add_log">+ Log</string>
+    <string name="history_empty_text">Log your first day and I\'ll explain the chemistry.</string>
 
-    <!-- Library -->
+    <!-- Trends -->
+    <string name="trends_7_days">7 days</string>
+    <string name="trends_30_days">30 days</string>
+    <string name="trends_sleep">Sleep</string>
+    <string name="trends_sleep_subtitle">Hours per night, last %1$d days</string>
+    <string name="trends_visitors">Who showed up most</string>
+    <string name="trends_days_of">%1$d of %2$d logged days</string>
+    <string name="trends_no_visitors">Nobody unusual showed up in this period.</string>
+    <string name="trends_pattern_more_sleep">Your mood was higher on the days you slept 7 hours or more.</string>
+    <string name="trends_pattern_less_sleep">Your mood was not lower on short nights in this period. Sleep is only one part of the picture.</string>
+    <string name="trends_pattern_none">I don\'t see a clear link between your sleep and mood in this period.</string>
+    <string name="trends_pattern_few">Log a few more days and I\'ll look for patterns between your sleep and mood.</string>
+    <string name="trends_empty_title">Nothing to chart yet</string>
+    <string name="trends_empty_text">Log a day and I\'ll start drawing your week.</string>
+
+    <!-- Library and Chemical Detail -->
     <string name="hint_search">Search chemicals</string>
     <string name="library_no_results">No chemicals match your search.</string>
-    <string name="heading_role">What it does</string>
-    <string name="heading_supported_by">Linked habits</string>
+    <string name="detail_hello">Hi, I\'m %1$s! I speak for %2$s.</string>
+    <string name="detail_category">%1$s · %2$s</string>
+    <string name="heading_role">What I do</string>
+    <string name="heading_supported_by">Habits linked to me</string>
     <string name="button_source">Open source article</string>
+    <string name="detail_source">Source: %1$s. ChemMe is educational and does not give medical advice.</string>
     <string name="message_no_browser">No browser app is installed to open the link.</string>
 
     <!-- Settings -->
     <string name="setting_reminder">Daily reminder</string>
-    <string name="setting_reminder_time">Change time: %1$s</string>
-    <string name="setting_location">Use location for daylight hours</string>
-    <string name="setting_location_note">Location is only used to work out sunrise and sunset. It is never saved.</string>
+    <string name="setting_reminder_note">A nudge to log your day</string>
+    <string name="setting_reminder_time">Reminder time</string>
+    <string name="setting_location">Use location for daylight</string>
+    <string name="setting_location_note">Only used to work out sunrise and sunset. Never saved.</string>
     <string name="button_delete_all">Delete all entries</string>
     <string name="dialog_delete_all_title">Delete all entries?</string>
     <string name="dialog_delete_all_message">Every logged day and its insights will be removed. The chemical library stays.</string>

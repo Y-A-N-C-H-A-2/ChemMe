@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Coloured circle used as the face of one chemical character. -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
-    <solid android:color="#7E57C2" />
-</shape>
+<!-- Blob mascot for Corty (cortisol). Generated from the Figma design; scales to any size. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    <path android:fillColor="#A3D139" android:pathData="M50.00,12.00 C61.08,12.00 76.73,10.43 83.23,16.77 C89.73,23.10 89.00,38.92 89.00,50.00 C89.00,61.08 89.73,76.90 83.23,83.23 C76.73,89.57 61.08,88.00 50.00,88.00 C38.92,88.00 23.27,89.57 16.77,83.23 C10.27,76.90 11.00,61.08 11.00,50.00 C11.00,38.92 10.27,23.10 16.77,16.77 C23.27,10.43 38.92,12.00 50.00,12.00 Z" />
+    <path android:fillColor="#221B3A" android:pathData="M33.4,46 a4.6,4.6 0 1,0 9.2,0 a4.6,4.6 0 1,0 -9.2,0 M57.4,46 a4.6,4.6 0 1,0 9.2,0 a4.6,4.6 0 1,0 -9.2,0" />
+    <path android:strokeColor="#221B3A" android:strokeWidth="3.2" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M41,61 q3,-4 6,0 t6,0 t6,0" />
+    <path android:strokeColor="#221B3A" android:strokeWidth="3.2" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M31,37 l10,-3 M69,37 l-10,-3" />
+</vector>

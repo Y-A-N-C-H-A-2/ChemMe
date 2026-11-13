@@ -1,92 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Screen 1, Home: greeting, today's status and the four main actions. -->
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- Home: greeting, today's status, this week's logged days and the characters seen lately. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <TextView
-                android:id="@+id/faceHome"
-                style="@style/Face"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:background="@drawable/ic_sera"
-                android:text="S"
-                android:textSize="28sp" />
-
-            <TextView
-                android:id="@+id/textGreeting"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_weight="1"
-                android:text="@string/home_greeting"
-                android:textColor="@color/ink"
-                android:textSize="18sp" />
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textDate"
+                        style="@style/Text.BodySmall"
+                        android:textColor="@color/text_secondary" />
+
+                    <TextView
+                        style="@style/Text.H1"
+                        android:text="@string/home_hello" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/buttonSettings"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/bg_circle_surface"
+                    android:contentDescription="@string/title_settings"
+                    android:padding="12dp"
+                    android:src="@drawable/ic_settings"
+                    app:tint="@color/text_primary" />
+            </LinearLayout>
+
+            <!-- Today card: who is talking, what today looks like and the main action. -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_hero"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imageHero"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_sera" />
+
+                    <TextView
+                        android:id="@+id/textHero"
+                        style="@style/Bubble"
+                        android:layout_width="0dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:text="@string/home_greeting" />
+                </LinearLayout>
+
+                <com.example.chemme.ui.FlowLayout
+                    android:id="@+id/chipsToday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/buttonLog"
+                        style="@style/PrimaryButton"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/button_log_today" />
+
+                    <Button
+                        android:id="@+id/buttonEdit"
+                        style="@style/SurfaceButton"
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/button_edit"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/Text.Title"
+                android:layout_marginTop="20dp"
+                android:text="@string/home_this_week" />
+
+            <!-- Seven day circles, added in MainActivity. -->
+            <LinearLayout
+                android:id="@+id/weekStrip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal" />
+
+            <LinearLayout
+                android:id="@+id/sectionVisitors"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/Text.Title"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/home_visitors" />
+
+                <!-- Up to three character cards, added in MainActivity. -->
+                <LinearLayout
+                    android:id="@+id/rowVisitors"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:baselineAligned="false"
+                    android:clipToPadding="false"
+                    android:orientation="horizontal"
+                    android:paddingBottom="4dp" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/Text.Caption"
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/disclaimer"
+                android:textColor="@color/text_secondary" />
         </LinearLayout>
+    </ScrollView>
 
-        <TextView
-            android:id="@+id/textToday"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/bg_card"
-            android:gravity="center"
-            android:padding="20dp"
-            android:text="@string/home_not_logged"
-            android:textColor="@color/grey"
-            android:textSize="16sp" />
-
-        <Button
-            android:id="@+id/buttonLog"
-            style="@style/PrimaryButton"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/button_log_today" />
-
-        <Button
-            android:id="@+id/buttonHistory"
-            style="@style/SecondaryButton"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/button_history" />
-
-        <Button
-            android:id="@+id/buttonLibrary"
-            style="@style/SecondaryButton"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/button_library" />
-
-        <Button
-            android:id="@+id/buttonSettings"
-            style="@style/SecondaryButton"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/button_settings" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:gravity="center"
-            android:text="@string/disclaimer"
-            android:textColor="@color/grey"
-            android:textSize="13sp" />
-    </LinearLayout>
-</ScrollView>
+    <include
+        android:id="@+id/bottomNav"
+        layout="@layout/view_bottom_nav" />
+</LinearLayout>

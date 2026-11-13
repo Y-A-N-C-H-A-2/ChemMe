@@ -1,5 +1,5 @@
 /**
- * Screen 3, Insights: the cards for one day, with Edit and Delete for that entry.
+ * Insights: the characters for one day, with Edit and Delete for that entry.
  */
 package com.example.chemme.ui
 
@@ -10,11 +10,11 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.chemme.R
+import com.example.chemme.data.DailyLog
 import com.example.chemme.databinding.ActivityInsightsBinding
 import com.example.chemme.logic.LogViewModel
 import kotlinx.coroutines.launch
@@ -39,6 +39,7 @@ class InsightsActivity : BackActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityInsightsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setUpTopBar(binding.topBar, "")
         logId = intent.getLongExtra(EXTRA_LOG_ID, 0L)
 
         binding.recyclerInsights.layoutManager = LinearLayoutManager(this)
@@ -72,16 +73,31 @@ class InsightsActivity : BackActivity() {
             finish()
             return
         }
-        title = getString(R.string.title_insights_date, Format.date(log.logDate))
-        binding.textSummary.text = getString(
-            R.string.insights_summary,
-            log.mood, log.energy, log.anxiety, Format.hours(log.sleepHours), log.caffeineCups
-        )
+        binding.topBar.textTitle.text = Format.date(log.logDate)
+        showSummary(log)
 
         val cards = viewModel.getInsights(logId)
         adapter.submitList(cards)
-        binding.textEmpty.isVisible = cards.isEmpty()
-        binding.textHint.isVisible = cards.isNotEmpty()
+        // Empty state: no rule matched, so a character says so instead of leaving a blank list.
+        binding.emptyState.isVisible = cards.isEmpty()
+        binding.textHeading.isVisible = cards.isNotEmpty()
+        binding.recyclerInsights.isVisible = cards.isNotEmpty()
+    }
+
+    /** The day's own numbers as chips, plus the note if one was written. */
+    private fun showSummary(log: DailyLog) {
+        Chips.show(
+            binding.chipsSummary,
+            listOf(
+                getString(R.string.chip_mood, log.mood),
+                getString(R.string.chip_energy, log.energy),
+                getString(R.string.chip_anxiety, log.anxiety),
+                getString(R.string.chip_sleep, Format.hours(log.sleepHours)),
+                resources.getQuantityString(R.plurals.coffees, log.caffeineCups, log.caffeineCups)
+            )
+        )
+        binding.textNote.isVisible = log.note != null
+        binding.textNote.text = getString(R.string.note_label, log.note.orEmpty())
     }
 
     private fun showBanner(textId: Int) {
@@ -91,18 +107,13 @@ class InsightsActivity : BackActivity() {
 
     /** Deleting cannot be undone, so ask first. Cancel leaves everything as it was. */
     private fun confirmDelete() {
-        AlertDialog.Builder(this)
-            .setTitle(R.string.dialog_delete_title)
-            .setMessage(R.string.dialog_delete_message)
-            .setNegativeButton(R.string.button_cancel, null)
-            .setPositiveButton(R.string.button_delete) { _, _ ->
-                lifecycleScope.launch {
-                    viewModel.deleteLog(logId)
-                    Toast.makeText(this@InsightsActivity, R.string.message_deleted, Toast.LENGTH_SHORT).show()
-                    finish()
-                }
+        ConfirmDialog.show(this, R.string.dialog_delete_title, R.string.dialog_delete_message) {
+            lifecycleScope.launch {
+                viewModel.deleteLog(logId)
+                Toast.makeText(this@InsightsActivity, R.string.message_deleted, Toast.LENGTH_SHORT).show()
+                finish()
             }
-            .show()
+        }
     }
 
     companion object {

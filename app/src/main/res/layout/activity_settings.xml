@@ -1,60 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Screen 7, Settings: reminder, location use and clearing data. -->
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- Settings: the daily reminder, whether location may be used, and clearing all entries. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/view_top_bar" />
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:fillViewport="true">
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switchReminder"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:text="@string/setting_reminder"
-            android:textColor="@color/ink"
-            android:textSize="16sp" />
-
-        <Button
-            android:id="@+id/buttonTime"
-            style="@style/SecondaryButton"
-            android:layout_width="match_parent"
-            android:layout_height="52dp" />
-
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switchLocation"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/setting_location"
-            android:textColor="@color/ink"
-            android:textSize="16sp" />
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/setting_location_note"
-            android:textColor="@color/grey"
-            android:textSize="13sp" />
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="24dp">
 
-        <Button
-            android:id="@+id/buttonDeleteAll"
-            style="@style/DangerButton"
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:layout_marginTop="32dp"
-            android:text="@string/button_delete_all" />
+            <LinearLayout
+                style="@style/Card"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:gravity="center"
-            android:text="@string/disclaimer"
-            android:textColor="@color/grey"
-            android:textSize="13sp" />
-    </LinearLayout>
-</ScrollView>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/Text.Title"
+                        android:text="@string/setting_reminder" />
+
+                    <TextView
+                        style="@style/Text.BodySmall"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/setting_reminder_note"
+                        android:textColor="@color/text_secondary" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchReminder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:contentDescription="@string/setting_reminder" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rowTime"
+                style="@style/Card"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_card_click"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/Text.Title"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/setting_reminder_time" />
+
+                <TextView
+                    android:id="@+id/textTime"
+                    style="@style/Text.Title"
+                    android:textColor="@color/text_brand" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Card"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/Text.Title"
+                        android:text="@string/setting_location" />
+
+                    <TextView
+                        style="@style/Text.BodySmall"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/setting_location_note"
+                        android:textColor="@color/text_secondary" />
+                </LinearLayout>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/switchLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:contentDescription="@string/setting_location" />
+            </LinearLayout>
+
+            <!-- Pushes the delete button to the bottom on tall screens. -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:minHeight="32dp" />
+
+            <Button
+                android:id="@+id/buttonDeleteAll"
+                style="@style/DangerButton"
+                android:layout_width="match_parent"
+                android:text="@string/button_delete_all" />
+
+            <TextView
+                style="@style/Text.Caption"
+                android:layout_width="match_parent"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:text="@string/disclaimer"
+                android:textColor="@color/text_secondary" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

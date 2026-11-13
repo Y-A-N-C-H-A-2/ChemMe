@@ -57,5 +57,9 @@ class ChemMeRepository(
 
     suspend fun getInsightCards(logId: Long): List<InsightCard> = insightDao.getRulesForLog(logId)
 
+    fun getLogIcons(): Flow<List<LogIcon>> = insightDao.observeLogIcons()
+
+    fun getVisits(fromDate: String): Flow<List<ChemicalVisit>> = insightDao.observeVisits(fromDate)
+
     suspend fun seedIfEmpty() = seedImporter.importIfEmpty()
 }

@@ -7,11 +7,14 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.chemme.ChemMeApplication
+import com.example.chemme.data.ChemicalVisit
 import com.example.chemme.data.DailyLog
+import com.example.chemme.data.HistoryRow
 import com.example.chemme.data.InsightCard
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
@@ -23,12 +26,25 @@ class LogViewModel(application: Application) : AndroidViewModel(application) {
     val logs: StateFlow<List<DailyLog>?> = repository.getLogs()
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
 
+    /**
+     * Every saved day with the faces of its characters, newest first. Used by Home and History.
+     * combine() re-runs whenever either table changes; null still means "loading".
+     */
+    val historyRows: StateFlow<List<HistoryRow>?> =
+        combine(repository.getLogs(), repository.getLogIcons()) { logs, icons ->
+            val iconsByLog = icons.groupBy({ it.logId }, { it.iconName })
+            logs.map { log -> HistoryRow(log, iconsByLog[log.logId].orEmpty()) }
+        }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
+
     init {
         // Import the chemicals and rules in the background the first time the app runs.
         viewModelScope.launch { repository.seedIfEmpty() }
     }
 
     fun observeLog(date: String): Flow<DailyLog?> = repository.observeLogByDate(date)
+
+    /** The characters seen on logged days from fromDate (an ISO date) onwards, most frequent first. */
+    fun observeVisits(fromDate: String): Flow<List<ChemicalVisit>> = repository.getVisits(fromDate)
 
     suspend fun getLog(id: Long): DailyLog? = repository.getLog(id)
 

@@ -49,3 +49,23 @@ data class InsightCard(
     val characterName: String,
     val iconName: String
 )
+
+/** Not a table. One character face that belongs to one saved day. */
+data class LogIcon(
+    val logId: Long,
+    val iconName: String
+)
+
+/** Not a table. One character and the number of logged days it appeared on in a period. */
+data class ChemicalVisit(
+    val chemicalId: Long,
+    val characterName: String,
+    val iconName: String,
+    val days: Int
+)
+
+/** Not a table. A saved day together with the faces of the characters that showed up. */
+data class HistoryRow(
+    val log: DailyLog,
+    val icons: List<String>
+)

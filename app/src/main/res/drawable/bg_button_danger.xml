@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Destructive actions such as Delete: soft red. -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="@color/ripple">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/status_error_soft" />
+            <corners android:radius="26dp" />
+        </shape>
+    </item>
+</ripple>
