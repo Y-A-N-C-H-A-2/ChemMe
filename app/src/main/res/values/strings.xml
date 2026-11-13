@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- All text the user sees. Keeping it here (not in layouts or code) makes it easy to change or translate. -->
+<resources>
+    <string name="app_name">ChemMe</string>
+    <string name="disclaimer">ChemMe is educational and does not give medical advice.</string>
+
+    <!-- Screen titles -->
+    <string name="title_log_entry">Log today</string>
+    <string name="title_edit_entry">Edit entry</string>
+    <string name="title_insights">Insights</string>
+    <string name="title_insights_date">Insights · %1$s</string>
+    <string name="title_history">History</string>
+    <string name="title_library">Chemical Library</string>
+    <string name="title_settings">Settings</string>
+
+    <!-- Home -->
+    <string name="home_greeting">Hi, I am Sera!\nHow was today?</string>
+    <string name="home_not_logged">Today: not logged yet</string>
+    <string name="home_logged">Today is logged: mood %1$d/5, sleep %2$s</string>
+    <string name="button_log_today">Log today</string>
+    <string name="button_edit_today">Edit today</string>
+    <string name="button_history">History</string>
+    <string name="button_library">Chemical Library</string>
+    <string name="button_settings">Settings</string>
+
+    <!-- Log entry -->
+    <string name="label_mood">Mood: %1$d/5</string>
+    <string name="label_energy">Energy: %1$d/5</string>
+    <string name="label_anxiety">Anxiety: %1$d/5</string>
+    <string name="label_sleep">Sleep (hours)</string>
+    <string name="label_caffeine">Caffeine (cups)</string>
+    <string name="label_exercise">Exercise (minutes)</string>
+    <string name="label_outdoor">Outdoors (minutes)</string>
+    <string name="label_meals">Meals eaten</string>
+    <string name="label_supplements">Supplements taken</string>
+    <string name="supplement_vitamin_d">Vitamin D</string>
+    <string name="supplement_b12">Vitamin B12</string>
+    <string name="supplement_iron">Iron</string>
+    <string name="label_note">Note (optional)</string>
+    <string name="daylight_value">Daylight today: %1$s (from location)</string>
+    <string name="daylight_searching">Daylight today: finding your location…</string>
+    <string name="daylight_unavailable">Daylight today: not available</string>
+    <string name="daylight_off">Daylight today: location is switched off in Settings</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_save">Save</string>
+    <string name="message_fix_errors">Please fix the fields marked in red. Nothing was saved.</string>
+
+    <!-- Insights -->
+    <string name="banner_saved">Entry saved</string>
+    <string name="banner_updated">Entry updated</string>
+    <string name="insights_summary">Mood %1$d/5 · Energy %2$d/5 · Anxiety %3$d/5 · Sleep %4$s · %5$d coffees</string>
+    <string name="insights_empty">No insight rules matched this day. Nothing unusual to explain.</string>
+    <string name="insights_hint">Tap a card for the chemical and its source</string>
+    <string name="insight_title">%1$s · %2$s</string>
+    <string name="button_edit">Edit</string>
+    <string name="button_delete">Delete</string>
+    <string name="button_done">Done</string>
+    <string name="dialog_delete_title">Delete this entry?</string>
+    <string name="dialog_delete_message">The entry and its insights will be removed. This cannot be undone.</string>
+    <string name="message_deleted">Entry deleted</string>
+
+    <!-- History -->
+    <string name="history_row">Mood %1$d/5 · Sleep %2$s</string>
+    <string name="history_empty_title">No entries yet</string>
+    <string name="history_empty_text">Log your first day and I will explain the chemistry.</string>
+    <string name="button_add_log">+ Log</string>
+
+    <!-- Library -->
+    <string name="hint_search">Search chemicals</string>
+    <string name="library_no_results">No chemicals match your search.</string>
+    <string name="heading_role">What it does</string>
+    <string name="heading_supported_by">Linked habits</string>
+    <string name="button_source">Open source article</string>
+    <string name="message_no_browser">No browser app is installed to open the link.</string>
+
+    <!-- Settings -->
+    <string name="setting_reminder">Daily reminder</string>
+    <string name="setting_reminder_time">Change time: %1$s</string>
+    <string name="setting_location">Use location for daylight hours</string>
+    <string name="setting_location_note">Location is only used to work out sunrise and sunset. It is never saved.</string>
+    <string name="button_delete_all">Delete all entries</string>
+    <string name="dialog_delete_all_title">Delete all entries?</string>
+    <string name="dialog_delete_all_message">Every logged day and its insights will be removed. The chemical library stays.</string>
+    <string name="message_all_deleted">All entries deleted</string>
+    <string name="message_notifications_denied">Notifications are blocked, so the reminder cannot be shown.</string>
+
+    <!-- Reminder notification -->
+    <string name="reminder_channel">Daily reminder</string>
+    <string name="reminder_title">How was today?</string>
+    <string name="reminder_text">Log your day in under a minute and see the chemistry behind it.</string>
+</resources>

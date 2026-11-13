@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android entry points: permissions, the application class, the seven screens and the reminder receiver. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Location is read once per entry, only to work out daylight hours for the user's latitude. -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- Needed on Android 13+ to show the daily reminder notification. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:name=".ChemMeApplication"
+        android:allowBackup="false"
+        android:icon="@drawable/ic_app"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.ChemMe">
+
+        <!-- MAIN + LAUNCHER makes MainActivity the screen opened from the app icon. -->
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.LogEntryActivity" android:label="@string/title_log_entry" />
+        <activity android:name=".ui.InsightsActivity" android:label="@string/title_insights" />
+        <activity android:name=".ui.HistoryActivity" android:label="@string/title_history" />
+        <activity android:name=".ui.LibraryActivity" android:label="@string/title_library" />
+        <activity android:name=".ui.ChemicalDetailActivity" android:label="@string/title_library" />
+        <activity android:name=".ui.SettingsActivity" android:label="@string/title_settings" />
+
+        <!-- Receives the daily alarm and posts the reminder notification. Not callable by other apps. -->
+        <receiver android:name=".logic.ReminderReceiver" android:exported="false" />
+    </application>
+</manifest>

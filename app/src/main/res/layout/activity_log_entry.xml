@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Screen 2, Log Entry: the form for one day. Each number box has a red error line under it. -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/textDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/ink"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Ratings: a SeekBar runs 0 to 4, and the code adds 1 to get 1 to 5. -->
+        <TextView
+            android:id="@+id/textMoodLabel"
+            style="@style/FieldLabel"
+            android:textColor="@color/ink"
+            android:textSize="15sp" />
+
+        <SeekBar
+            android:id="@+id/seekMood"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="4"
+            android:progress="2" />
+
+        <TextView
+            android:id="@+id/textEnergyLabel"
+            style="@style/FieldLabel"
+            android:textColor="@color/ink"
+            android:textSize="15sp" />
+
+        <SeekBar
+            android:id="@+id/seekEnergy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="4"
+            android:progress="2" />
+
+        <TextView
+            android:id="@+id/textAnxietyLabel"
+            style="@style/FieldLabel"
+            android:textColor="@color/ink"
+            android:textSize="15sp" />
+
+        <SeekBar
+            android:id="@+id/seekAnxiety"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="4"
+            android:progress="2" />
+
+        <TextView style="@style/FieldLabel" android:text="@string/label_sleep" />
+
+        <EditText
+            android:id="@+id/editSleep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="7.5"
+            android:importantForAutofill="no"
+            android:inputType="numberDecimal" />
+
+        <TextView android:id="@+id/errorSleep" style="@style/FieldError" />
+
+        <TextView style="@style/FieldLabel" android:text="@string/label_caffeine" />
+
+        <EditText
+            android:id="@+id/editCaffeine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:importantForAutofill="no"
+            android:inputType="number" />
+
+        <TextView android:id="@+id/errorCaffeine" style="@style/FieldError" />
+
+        <TextView style="@style/FieldLabel" android:text="@string/label_exercise" />
+
+        <EditText
+            android:id="@+id/editExercise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:importantForAutofill="no"
+            android:inputType="number" />
+
+        <TextView android:id="@+id/errorExercise" style="@style/FieldError" />
+
+        <TextView style="@style/FieldLabel" android:text="@string/label_outdoor" />
+
+        <EditText
+            android:id="@+id/editOutdoor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:importantForAutofill="no"
+            android:inputType="number" />
+
+        <TextView android:id="@+id/errorOutdoor" style="@style/FieldError" />
+
+        <TextView style="@style/FieldLabel" android:text="@string/label_meals" />
+
+        <EditText
+            android:id="@+id/editMeals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="3"
+            android:importantForAutofill="no"
+            android:inputType="number" />
+
+        <TextView android:id="@+id/errorMeals" style="@style/FieldError" />
+
+        <TextView style="@style/FieldLabel" android:text="@string/label_supplements" />
+
+        <CheckBox
+            android:id="@+id/checkVitaminD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/supplement_vitamin_d" />
+
+        <CheckBox
+            android:id="@+id/checkB12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/supplement_b12" />
+
+        <CheckBox
+            android:id="@+id/checkIron"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/supplement_iron" />
+
+        <TextView style="@style/FieldLabel" android:text="@string/label_note" />
+
+        <EditText
+            android:id="@+id/editNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine|textCapSentences"
+            android:maxLength="300"
+            android:minLines="2" />
+
+        <TextView android:id="@+id/errorNote" style="@style/FieldError" />
+
+        <TextView
+            android:id="@+id/textDaylight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/daylight_unavailable"
+            android:textColor="@color/teal"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonCancel"
+                style="@style/SecondaryButton"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginEnd="6dp"
+                android:layout_weight="1"
+                android:text="@string/button_cancel" />
+
+            <Button
+                android:id="@+id/buttonSave"
+                style="@style/PrimaryButton"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:text="@string/button_save" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

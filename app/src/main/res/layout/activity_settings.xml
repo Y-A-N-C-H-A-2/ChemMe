@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Screen 7, Settings: reminder, location use and clearing data. -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchReminder"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="@string/setting_reminder"
+            android:textColor="@color/ink"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/buttonTime"
+            style="@style/SecondaryButton"
+            android:layout_width="match_parent"
+            android:layout_height="52dp" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchLocation"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/setting_location"
+            android:textColor="@color/ink"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/setting_location_note"
+            android:textColor="@color/grey"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/buttonDeleteAll"
+            style="@style/DangerButton"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/button_delete_all" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:text="@string/disclaimer"
+            android:textColor="@color/grey"
+            android:textSize="13sp" />
+    </LinearLayout>
+</ScrollView>
