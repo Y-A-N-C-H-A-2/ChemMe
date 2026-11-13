@@ -8,7 +8,10 @@ import com.example.chemme.data.DailyLog
 import com.example.chemme.data.InsightRule
 import com.example.chemme.logic.DaylightHelper
 import com.example.chemme.logic.InsightEngine
+import com.example.chemme.logic.LogChoices
 import com.example.chemme.logic.LogValidator
+import com.example.chemme.logic.TrendsCalculator
+import com.example.chemme.logic.TrendsCalculator.SleepMoodPattern
 import java.time.LocalDate
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -31,6 +34,10 @@ class LogicTest {
         ruleId = id, chemicalId = 1, habitField = field, comparator = comparator,
         threshold = threshold, message = "test", sourceUrl = "https://example.com"
     )
+
+    /** A day for the Trends tests, where only the date, mood and sleep matter. */
+    private fun day(date: String, mood: Int, sleepHours: Double) =
+        log(mood = mood, sleepHours = sleepHours).copy(logDate = date)
 
     @Test
     fun validInputHasNoErrors() {
@@ -101,5 +108,69 @@ class LogicTest {
         val june = DaylightHelper.daylightHoursAt(dublin, LocalDate.of(2026, 6, 21))
         assertTrue("November should be about 8 to 9 hours, was $november", november in 8.0..9.0)
         assertTrue("June should be over 16 hours, was $june", june > 16.0)
+    }
+
+    @Test
+    fun noteOverThreeHundredCharactersIsRejected() {
+        val result = LogValidator.validate(log().copy(note = "x".repeat(301)))
+        assertEquals(setOf(LogValidator.FIELD_NOTE), result.errors.keys)
+        assertTrue(LogValidator.validate(log().copy(note = "x".repeat(300))).isValid)
+    }
+
+    @Test
+    fun outdoorAnswersAreStoredAsMinutesThatFitTheRules() {
+        // "Not at all" and "Under 20 min" must both fall under the 20-minute daylight rules.
+        val rules = listOf(rule(1, "outdoorMinutes", "<", 20.0))
+        val matches = LogChoices.OUTDOOR_MINUTES.map { minutes ->
+            InsightEngine.generate(log().copy(outdoorMinutes = minutes), rules).isNotEmpty()
+        }
+        assertEquals(listOf(true, true, false, false), matches)
+    }
+
+    @Test
+    fun storedOutdoorMinutesOpenOnTheMatchingAnswer() {
+        assertEquals(listOf(0, 1, 2, 3), LogChoices.OUTDOOR_MINUTES.map { LogChoices.outdoorIndex(it) })
+        assertEquals(1, LogChoices.outdoorIndex(19))
+        assertEquals(2, LogChoices.outdoorIndex(20))
+        assertEquals(2, LogChoices.outdoorIndex(60))
+        assertEquals(3, LogChoices.outdoorIndex(61))
+    }
+
+    @Test
+    fun stepperStopsAtItsLimits() {
+        assertEquals(8.0, LogChoices.stepValue(7.5, 0.5, +1, 0.0, 24.0), 0.0)
+        assertEquals(0.0, LogChoices.stepValue(0.0, 0.5, -1, 0.0, 24.0), 0.0)
+        assertEquals(24.0, LogChoices.stepValue(24.0, 0.5, +1, 0.0, 24.0), 0.0)
+    }
+
+    @Test
+    fun trendsNeedThreeDaysBeforeNamingAPattern() {
+        val logs = listOf(day("2026-11-12", 5, 8.0), day("2026-11-13", 2, 5.0))
+        assertEquals(SleepMoodPattern.TOO_FEW_DAYS, TrendsCalculator.sleepMoodPattern(logs))
+    }
+
+    @Test
+    fun trendsSeeBetterMoodAfterLongerSleep() {
+        val logs = listOf(day("2026-11-11", 4, 8.0), day("2026-11-12", 5, 7.0), day("2026-11-13", 2, 5.0))
+        assertEquals(SleepMoodPattern.BETTER_AFTER_MORE_SLEEP, TrendsCalculator.sleepMoodPattern(logs))
+    }
+
+    @Test
+    fun trendsMakeNoClaimWhenEveryNightIsTheSameKind() {
+        val logs = listOf(day("2026-11-11", 2, 8.0), day("2026-11-12", 5, 7.0), day("2026-11-13", 3, 9.0))
+        assertEquals(SleepMoodPattern.NO_CLEAR_LINK, TrendsCalculator.sleepMoodPattern(logs))
+    }
+
+    @Test
+    fun sleepChartHasOneSlotPerDayAndGapsForMissingDays() {
+        val logs = listOf(day("2026-11-11", 4, 8.0), day("2026-11-13", 2, 5.0), day("2026-10-01", 3, 6.0))
+        val today = LocalDate.of(2026, 11, 13)
+        val inWeek = TrendsCalculator.logsInPeriod(logs, today, 7)
+        assertEquals(2, inWeek.size) // The October day is outside the last 7 days.
+
+        val bars = TrendsCalculator.sleepByDay(inWeek, today, 7)
+        assertEquals(7, bars.size)
+        assertEquals(LocalDate.of(2026, 11, 7), bars.first().first)
+        assertEquals(listOf(null, null, null, null, 8.0, null, 5.0), bars.map { it.second })
     }
 }

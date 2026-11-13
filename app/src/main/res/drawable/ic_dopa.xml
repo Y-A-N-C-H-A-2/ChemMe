@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Coloured circle used as the face of one chemical character. -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
-    <solid android:color="#F46524" />
-</shape>
+<!-- Blob mascot for Dopa (dopamine). Generated from the Figma design; scales to any size. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    <path android:fillColor="#FF8A3D" android:pathData="M50.00,3.00 C59.19,3.00 69.74,14.59 77.58,22.42 C85.41,30.26 97.00,40.81 97.00,50.00 C97.00,59.19 85.41,69.74 77.58,77.58 C69.74,85.41 59.19,97.00 50.00,97.00 C40.81,97.00 30.26,85.41 22.42,77.58 C14.59,69.74 3.00,59.19 3.00,50.00 C3.00,40.81 14.59,30.26 22.42,22.42 C30.26,14.59 40.81,3.00 50.00,3.00 Z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M29,45 a8,8 0 1,0 16,0 a8,8 0 1,0 -16,0 M55,45 a8,8 0 1,0 16,0 a8,8 0 1,0 -16,0" />
+    <path android:fillColor="#221B3A" android:pathData="M34.5,46 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0 M57.5,46 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0" />
+    <path android:fillColor="#221B3A" android:strokeColor="#221B3A" android:strokeWidth="3" android:strokeLineJoin="round" android:pathData="M41,57 q9,13 18,0 Z" />
+</vector>

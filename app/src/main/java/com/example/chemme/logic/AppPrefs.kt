@@ -14,7 +14,7 @@ class AppPrefs(context: Context) {
         set(value) = prefs.edit().putBoolean(KEY_REMINDER_ENABLED, value).apply()
 
     var reminderHour: Int
-        get() = prefs.getInt(KEY_REMINDER_HOUR, 21)
+        get() = prefs.getInt(KEY_REMINDER_HOUR, 20)
         set(value) = prefs.edit().putInt(KEY_REMINDER_HOUR, value).apply()
 
     var reminderMinute: Int
@@ -26,10 +26,16 @@ class AppPrefs(context: Context) {
         get() = prefs.getBoolean(KEY_USE_LOCATION, true)
         set(value) = prefs.edit().putBoolean(KEY_USE_LOCATION, value).apply()
 
+    /** False until the first-launch introduction has been finished. */
+    var onboardingDone: Boolean
+        get() = prefs.getBoolean(KEY_ONBOARDING_DONE, false)
+        set(value) = prefs.edit().putBoolean(KEY_ONBOARDING_DONE, value).apply()
+
     private companion object {
         const val KEY_REMINDER_ENABLED = "reminder_enabled"
         const val KEY_REMINDER_HOUR = "reminder_hour"
         const val KEY_REMINDER_MINUTE = "reminder_minute"
         const val KEY_USE_LOCATION = "use_location"
+        const val KEY_ONBOARDING_DONE = "onboarding_done"
     }
 }

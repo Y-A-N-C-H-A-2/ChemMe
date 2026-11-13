@@ -6,23 +6,25 @@ package com.example.chemme.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chemme.R
 import com.example.chemme.data.Chemical
-import com.example.chemme.data.DailyLog
+import com.example.chemme.data.HistoryRow
 import com.example.chemme.data.InsightCard
 import com.example.chemme.databinding.ItemChemicalBinding
 import com.example.chemme.databinding.ItemInsightBinding
 import com.example.chemme.databinding.ItemLogBinding
+import java.time.LocalDate
 
 /**
  * History rows. A ViewHolder keeps references to one row's views, and RecyclerView reuses the
  * holders that scroll off screen, so only a screenful of rows is ever created.
  */
-class LogAdapter(private val onClick: (DailyLog) -> Unit) :
-    ListAdapter<DailyLog, LogAdapter.Holder>(Diff) {
+class LogAdapter(private val onClick: (HistoryRow) -> Unit) :
+    ListAdapter<HistoryRow, LogAdapter.Holder>(Diff) {
 
     class Holder(val binding: ItemLogBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -31,20 +33,37 @@ class LogAdapter(private val onClick: (DailyLog) -> Unit) :
         ItemLogBinding.inflate(LayoutInflater.from(parent.context), parent, false)
     )
 
-    /** Replaces a reused row's contents with the log at this position. */
+    /** Replaces a reused row's contents with the day at this position. */
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        val log = getItem(position)
+        val row = getItem(position)
+        val log = row.log
+        val date = LocalDate.parse(log.logDate)
         with(holder.binding) {
-            textDate.text = Format.date(log.logDate)
+            textDay.text = Format.dayName(date)
+            textNumber.text = Format.dayNumber(date)
+            textMonth.text = Format.monthName(date)
             textSummary.text = root.context.getString(R.string.history_row, log.mood, Format.hours(log.sleepHours))
-            root.setOnClickListener { onClick(log) }
+
+            // Up to three faces; a reused row must also hide the ones it no longer needs.
+            val faces = listOf(mascot1, mascot2, mascot3)
+            faces.forEachIndexed { index, view ->
+                val icon = row.icons.getOrNull(index)
+                view.isVisible = icon != null
+                if (icon != null) view.setImageResource(ChemicalIcons.drawableFor(icon))
+            }
+            val extra = row.icons.size - faces.size
+            textMore.isVisible = extra > 0
+            textMore.text = root.context.getString(R.string.history_more, extra)
+            rowMascots.isVisible = row.icons.isNotEmpty()
+
+            root.setOnClickListener { onClick(row) }
         }
     }
 
     // ListAdapter uses these to work out which rows changed and animate only those.
-    private object Diff : DiffUtil.ItemCallback<DailyLog>() {
-        override fun areItemsTheSame(old: DailyLog, new: DailyLog) = old.logId == new.logId
-        override fun areContentsTheSame(old: DailyLog, new: DailyLog) = old == new
+    private object Diff : DiffUtil.ItemCallback<HistoryRow>() {
+        override fun areItemsTheSame(old: HistoryRow, new: HistoryRow) = old.log.logId == new.log.logId
+        override fun areContentsTheSame(old: HistoryRow, new: HistoryRow) = old == new
     }
 }
 
@@ -61,10 +80,11 @@ class InsightAdapter(private val onClick: (InsightCard) -> Unit) :
     override fun onBindViewHolder(holder: Holder, position: Int) {
         val card = getItem(position)
         with(holder.binding) {
-            face.setBackgroundResource(ChemicalIcons.drawableFor(card.iconName))
-            face.text = card.characterName.take(1)
-            textTitle.text = root.context.getString(R.string.insight_title, card.characterName, card.chemicalName)
+            val context = root.context
+            imageMascot.setImageResource(ChemicalIcons.drawableFor(card.iconName))
+            textTitle.text = context.getString(R.string.insight_title, card.characterName, card.chemicalName)
             textMessage.text = card.message
+            textSource.text = context.getString(R.string.source_label, Format.sourceName(card.sourceUrl))
             root.setOnClickListener { onClick(card) }
         }
     }
@@ -75,7 +95,7 @@ class InsightAdapter(private val onClick: (InsightCard) -> Unit) :
     }
 }
 
-/** Chemical rows in the library. */
+/** Character cards in the library grid. */
 class ChemicalAdapter(private val onClick: (Chemical) -> Unit) :
     ListAdapter<Chemical, ChemicalAdapter.Holder>(Diff) {
 
@@ -88,9 +108,9 @@ class ChemicalAdapter(private val onClick: (Chemical) -> Unit) :
     override fun onBindViewHolder(holder: Holder, position: Int) {
         val chemical = getItem(position)
         with(holder.binding) {
-            face.setBackgroundResource(ChemicalIcons.drawableFor(chemical.iconName))
-            face.text = chemical.characterName.take(1)
-            textName.text = root.context.getString(R.string.insight_title, chemical.characterName, chemical.name)
+            imageMascot.setImageResource(ChemicalIcons.drawableFor(chemical.iconName))
+            textName.text = chemical.characterName
+            textChemical.text = chemical.name
             textCategory.text = chemical.category
             root.setOnClickListener { onClick(chemical) }
         }

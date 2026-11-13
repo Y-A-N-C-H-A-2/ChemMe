@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Coloured circle used as the face of one chemical character. -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
-    <solid android:color="#607D8B" />
-</shape>
+<!-- Blob mascot for Ferro (iron). Generated from the Figma design; scales to any size. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    <path android:fillColor="#8C9BC4" android:pathData="M50.00,10.52 C61.31,10.52 76.94,11.52 83.94,18.10 C90.94,24.68 92.00,39.37 92.00,50.00 C92.00,60.63 90.94,75.32 83.94,81.90 C76.94,88.48 61.31,89.48 50.00,89.48 C38.69,89.48 23.06,88.48 16.06,81.90 C9.06,75.32 8.00,60.63 8.00,50.00 C8.00,39.37 9.06,24.68 16.06,18.10 C23.06,11.52 38.69,10.52 50.00,10.52 Z" />
+    <path android:fillColor="#221B3A" android:pathData="M33.4,46 a4.6,4.6 0 1,0 9.2,0 a4.6,4.6 0 1,0 -9.2,0 M57.4,46 a4.6,4.6 0 1,0 9.2,0 a4.6,4.6 0 1,0 -9.2,0" />
+    <path android:strokeColor="#221B3A" android:strokeWidth="3.2" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M44,61 h12" />
+    <path android:strokeColor="#221B3A" android:strokeWidth="3.2" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M32,36 h11 M57,36 h11" />
+</vector>

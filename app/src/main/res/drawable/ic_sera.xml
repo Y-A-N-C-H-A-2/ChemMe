@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Coloured circle used as the face of one chemical character. -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
-    <solid android:color="#F4B400" />
-</shape>
+<!-- Blob mascot for Sera (serotonin). Generated from the Figma design; scales to any size. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    <path android:fillColor="#FF7EB6" android:pathData="M50.00,6.00 C60.96,6.12 75.36,10.14 82.53,17.47 C89.69,24.81 92.88,39.04 93.00,50.00 C93.12,60.96 90.40,75.90 83.23,83.23 C76.07,90.57 60.96,94.12 50.00,94.00 C39.04,93.88 24.64,89.86 17.47,82.53 C10.31,75.19 7.12,60.96 7.00,50.00 C6.88,39.04 9.60,24.10 16.77,16.77 C23.93,9.43 39.04,5.88 50.00,6.00 Z" />
+    <path android:strokeColor="#221B3A" android:strokeWidth="3.2" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M32,48 q6,-8 12,0 M56,48 q6,-8 12,0" />
+    <path android:strokeColor="#221B3A" android:strokeWidth="3.2" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M43,58 q7,7 14,0" />
+    <path android:fillColor="#FFFFFF" android:fillAlpha="0.4" android:pathData="M24,56 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0 M66,56 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+</vector>

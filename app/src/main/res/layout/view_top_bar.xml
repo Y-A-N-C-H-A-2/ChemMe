@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Header for screens opened on top of a tab: a back arrow and the screen title. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingStart="8dp"
+    android:paddingEnd="16dp">
+
+    <ImageView
+        android:id="@+id/buttonBack"
+        style="@style/IconButton"
+        android:contentDescription="@string/button_back"
+        android:src="@drawable/ic_back" />
+
+    <TextView
+        android:id="@+id/textTitle"
+        style="@style/Text.H2"
+        android:layout_width="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:maxLines="1" />
+</LinearLayout>

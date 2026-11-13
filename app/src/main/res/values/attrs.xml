@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Options for FlowLayout, the wrapping row used for chips. -->
+    <declare-styleable name="FlowLayout">
+        <!-- True centres each line; false (default) starts lines at the left. -->
+        <attr name="centered" format="boolean" />
+    </declare-styleable>
+</resources>

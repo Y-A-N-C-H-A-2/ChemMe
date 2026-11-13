@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Coloured circle used as the face of one chemical character. -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
-    <solid android:color="#F59E0B" />
-</shape>
+<!-- Blob mascot for Sunny (vitamin D). Generated from the Figma design; scales to any size. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    <path android:fillColor="#FFC533" android:pathData="M50.00,2.00 C56.83,2.00 63.57,10.49 70.50,14.49 C77.43,18.49 88.15,20.08 91.57,26.00 C94.99,31.92 91.00,42.00 91.00,50.00 C91.00,58.00 94.99,68.08 91.57,74.00 C88.15,79.92 77.43,81.51 70.50,85.51 C63.57,89.51 56.83,98.00 50.00,98.00 C43.17,98.00 36.43,89.51 29.50,85.51 C22.57,81.51 11.85,79.92 8.43,74.00 C5.01,68.08 9.00,58.00 9.00,50.00 C9.00,42.00 5.01,31.92 8.43,26.00 C11.85,20.08 22.57,18.49 29.50,14.49 C36.43,10.49 43.17,2.00 50.00,2.00 Z" />
+    <path android:strokeColor="#221B3A" android:strokeWidth="3.2" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M32,48 q6,-8 12,0 M56,48 q6,-8 12,0" />
+    <path android:fillColor="#221B3A" android:strokeColor="#221B3A" android:strokeWidth="3" android:strokeLineJoin="round" android:pathData="M41,57 q9,13 18,0 Z" />
+    <path android:fillColor="#FFFFFF" android:fillAlpha="0.4" android:pathData="M24,56 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0 M66,56 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+</vector>

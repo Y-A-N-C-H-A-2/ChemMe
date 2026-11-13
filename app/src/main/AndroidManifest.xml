@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Android entry points: permissions, the application class, the seven screens and the reminder receiver. -->
+<!-- Android entry points: permissions, the application class, the screens and the reminder receiver. -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Location is read once per entry, only to work out daylight hours for the user's latitude. -->
@@ -25,12 +25,18 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.LogEntryActivity" android:label="@string/title_log_entry" />
-        <activity android:name=".ui.InsightsActivity" android:label="@string/title_insights" />
-        <activity android:name=".ui.HistoryActivity" android:label="@string/title_history" />
-        <activity android:name=".ui.LibraryActivity" android:label="@string/title_library" />
-        <activity android:name=".ui.ChemicalDetailActivity" android:label="@string/title_library" />
-        <activity android:name=".ui.SettingsActivity" android:label="@string/title_settings" />
+        <!-- Shown once, on first launch, before Home. -->
+        <activity android:name=".ui.OnboardingActivity" />
+        <!-- adjustResize keeps the Save button above the keyboard on the note question. -->
+        <activity
+            android:name=".ui.LogEntryActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".ui.InsightsActivity" />
+        <activity android:name=".ui.HistoryActivity" />
+        <activity android:name=".ui.TrendsActivity" />
+        <activity android:name=".ui.LibraryActivity" />
+        <activity android:name=".ui.ChemicalDetailActivity" />
+        <activity android:name=".ui.SettingsActivity" />
 
         <!-- Receives the daily alarm and posts the reminder notification. Not callable by other apps. -->
         <receiver android:name=".logic.ReminderReceiver" android:exported="false" />

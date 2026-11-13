@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Block behind the big character on Chemical Detail; tinted in code with the character's colour. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="@color/bg_brand_soft" />
+    <corners android:radius="32dp" />
+</shape>

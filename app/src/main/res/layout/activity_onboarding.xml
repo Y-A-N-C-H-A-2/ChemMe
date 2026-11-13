@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- First-launch introduction: three pages in one layout; OnboardingActivity shows one at a time. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:fillViewport="true">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false">
+
+            <!-- Page 1: meet the characters. -->
+            <LinearLayout
+                android:id="@+id/page1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
+
+                    <ImageView android:layout_width="64dp" android:layout_height="64dp" android:importantForAccessibility="no" android:src="@drawable/ic_corty" />
+                    <ImageView android:layout_width="112dp" android:layout_height="112dp" android:layout_marginStart="12dp" android:layout_marginEnd="12dp" android:importantForAccessibility="no" android:src="@drawable/ic_sera" />
+                    <ImageView android:layout_width="72dp" android:layout_height="72dp" android:importantForAccessibility="no" android:src="@drawable/ic_sunny" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView android:layout_width="48dp" android:layout_height="48dp" android:importantForAccessibility="no" android:src="@drawable/ic_mel" />
+                    <ImageView android:layout_width="56dp" android:layout_height="56dp" android:layout_marginStart="12dp" android:importantForAccessibility="no" android:src="@drawable/ic_dopa" />
+                    <ImageView android:layout_width="52dp" android:layout_height="52dp" android:layout_marginStart="12dp" android:importantForAccessibility="no" android:src="@drawable/ic_gabby" />
+                    <ImageView android:layout_width="48dp" android:layout_height="48dp" android:layout_marginStart="12dp" android:importantForAccessibility="no" android:src="@drawable/ic_addy" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/Text.Display"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="28dp"
+                    android:gravity="center"
+                    android:text="@string/onboarding_title" />
+
+                <TextView
+                    style="@style/Text.Body"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center"
+                    android:text="@string/onboarding_text"
+                    android:textColor="@color/text_secondary" />
+            </LinearLayout>
+
+            <!-- Page 2: how it works, and what the app is not. -->
+            <LinearLayout
+                android:id="@+id/page2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/Text.H1"
+                    android:text="@string/onboarding_how_title" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView android:layout_width="56dp" android:layout_height="56dp" android:importantForAccessibility="no" android:src="@drawable/ic_sera" />
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:orientation="vertical">
+                        <TextView style="@style/Text.Title" android:text="@string/onboarding_step1_title" />
+                        <TextView style="@style/Text.BodySmall" android:layout_marginTop="4dp" android:text="@string/onboarding_step1_text" android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView android:layout_width="56dp" android:layout_height="56dp" android:importantForAccessibility="no" android:src="@drawable/ic_corty" />
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:orientation="vertical">
+                        <TextView style="@style/Text.Title" android:text="@string/onboarding_step2_title" />
+                        <TextView style="@style/Text.BodySmall" android:layout_marginTop="4dp" android:text="@string/onboarding_step2_text" android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView android:layout_width="56dp" android:layout_height="56dp" android:importantForAccessibility="no" android:src="@drawable/ic_bea" />
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:orientation="vertical">
+                        <TextView style="@style/Text.Title" android:text="@string/onboarding_step3_title" />
+                        <TextView style="@style/Text.BodySmall" android:layout_marginTop="4dp" android:text="@string/onboarding_step3_text" android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/bg_hero"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_alert"
+                        app:tint="@color/text_brand" />
+
+                    <TextView
+                        style="@style/Text.BodySmall"
+                        android:layout_width="0dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:text="@string/onboarding_disclaimer" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Page 3: the two optional extras, each explained before Android asks for permission. -->
+            <LinearLayout
+                android:id="@+id/page3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/Bubble"
+                    android:layout_width="match_parent"
+                    android:text="@string/onboarding_permission_text" />
+
+                <ImageView
+                    android:layout_width="112dp"
+                    android:layout_height="112dp"
+                    android:layout_marginTop="12dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_sunny" />
+
+                <LinearLayout
+                    style="@style/Card"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView style="@style/Text.Title" android:text="@string/setting_location" />
+                        <TextView style="@style/Text.BodySmall" android:layout_marginTop="4dp" android:text="@string/onboarding_location_note" android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switchLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:checked="true"
+                        android:contentDescription="@string/setting_location" />
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/Card"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView style="@style/Text.Title" android:text="@string/setting_reminder" />
+                        <TextView android:id="@+id/textReminderNote" style="@style/Text.BodySmall" android:layout_marginTop="4dp" android:textColor="@color/text_secondary" />
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switchReminder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:checked="true"
+                        android:contentDescription="@string/setting_reminder" />
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
+
+        <View android:id="@+id/dot1" android:layout_width="24dp" android:layout_height="8dp" android:background="@drawable/bg_dot_on" />
+        <View android:id="@+id/dot2" android:layout_width="8dp" android:layout_height="8dp" android:layout_marginStart="8dp" android:background="@drawable/bg_dot_off" />
+        <View android:id="@+id/dot3" android:layout_width="8dp" android:layout_height="8dp" android:layout_marginStart="8dp" android:background="@drawable/bg_dot_off" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonNext"
+        style="@style/PrimaryButton"
+        android:layout_width="match_parent"
+        android:text="@string/onboarding_start" />
+
+    <Button
+        android:id="@+id/buttonSkip"
+        style="@style/GhostButton"
+        android:layout_width="match_parent"
+        android:layout_marginTop="4dp"
+        android:text="@string/onboarding_not_now"
+        android:visibility="gone" />
+</LinearLayout>

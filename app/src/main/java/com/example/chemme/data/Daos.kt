@@ -90,4 +90,35 @@ interface InsightDao {
         """
     )
     suspend fun getRulesForLog(logId: Long): List<InsightCard>
+
+    /**
+     * Which characters belong to which saved day, for the small faces on History rows and Home.
+     * A Flow, so the screens redraw when insights are saved or a day is deleted.
+     */
+    @Query(
+        """
+        SELECT DISTINCT li.logId AS logId, c.iconName AS iconName
+        FROM log_insight li
+        INNER JOIN insight_rule r ON r.ruleId = li.ruleId
+        INNER JOIN chemical c ON c.chemicalId = r.chemicalId
+        ORDER BY c.name
+        """
+    )
+    fun observeLogIcons(): Flow<List<LogIcon>>
+
+    /** Counts on how many logged days since fromDate each character showed up, most frequent first. */
+    @Query(
+        """
+        SELECT c.chemicalId AS chemicalId, c.characterName AS characterName,
+               c.iconName AS iconName, COUNT(DISTINCT li.logId) AS days
+        FROM log_insight li
+        INNER JOIN insight_rule r ON r.ruleId = li.ruleId
+        INNER JOIN chemical c ON c.chemicalId = r.chemicalId
+        INNER JOIN daily_log d ON d.logId = li.logId
+        WHERE d.logDate >= :fromDate
+        GROUP BY c.chemicalId
+        ORDER BY days DESC, c.name
+        """
+    )
+    fun observeVisits(fromDate: String): Flow<List<ChemicalVisit>>
 }

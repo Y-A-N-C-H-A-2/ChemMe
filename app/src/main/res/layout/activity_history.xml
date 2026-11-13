@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Screen 4, History: the list of saved days, or the empty state when there are none. -->
+<!-- History: the list of saved days, or the empty state when there are none. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/Text.H1"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="12dp"
+        android:text="@string/title_history" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerLogs"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:paddingBottom="8dp" />
 
     <!-- Empty state: shown instead of the list when no day has been logged. -->
     <LinearLayout
@@ -20,40 +30,36 @@
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical"
+        android:padding="24dp"
         android:visibility="gone">
 
-        <TextView
-            style="@style/Face"
-            android:layout_width="88dp"
-            android:layout_height="88dp"
-            android:background="@drawable/ic_sera"
-            android:text="S"
-            android:textSize="36sp" />
+        <ImageView
+            android:layout_width="112dp"
+            android:layout_height="112dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_sera" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/history_empty_title"
-            android:textColor="@color/ink"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            style="@style/Text.H2"
+            android:layout_marginTop="12dp"
+            android:text="@string/history_empty_title" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            style="@style/Text.Body"
+            android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="@string/history_empty_text"
-            android:textColor="@color/grey"
-            android:textSize="15sp" />
+            android:textColor="@color/text_secondary" />
+
+        <Button
+            android:id="@+id/buttonLog"
+            style="@style/PrimaryButton"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/button_log_today" />
     </LinearLayout>
 
-    <Button
-        android:id="@+id/buttonLog"
-        style="@style/PrimaryButton"
-        android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/button_add_log" />
+    <include
+        android:id="@+id/bottomNav"
+        layout="@layout/view_bottom_nav" />
 </LinearLayout>

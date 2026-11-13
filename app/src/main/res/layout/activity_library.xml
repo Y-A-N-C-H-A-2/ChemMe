@@ -1,33 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Screen 5, Chemical Library: a search box above the list of chemicals. -->
+<!-- Chemical Library: a search box above a two-column grid of every character. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editSearch"
+    <TextView
+        style="@style/Text.H1"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/title_library" />
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:hint="@string/hint_search"
-        android:importantForAutofill="no"
-        android:inputType="text"
-        android:maxLines="1" />
+        android:layout_height="52dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_search"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_search"
+            app:tint="@color/text_secondary" />
+
+        <EditText
+            android:id="@+id/editSearch"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:fontFamily="@font/nunito_medium"
+            android:hint="@string/hint_search"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textColor="@color/text_primary"
+            android:textColorHint="@color/text_secondary"
+            android:textSize="16sp" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textNoResults"
+        style="@style/Text.Body"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
         android:text="@string/library_no_results"
-        android:textColor="@color/grey"
+        android:textColor="@color/text_secondary"
         android:visibility="gone" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerChemicals"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="8dp" />
+
+    <include
+        android:id="@+id/bottomNav"
+        layout="@layout/view_bottom_nav" />
 </LinearLayout>

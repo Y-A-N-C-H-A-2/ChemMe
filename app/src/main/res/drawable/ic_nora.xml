@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Coloured circle used as the face of one chemical character. -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
-    <solid android:color="#E5484D" />
-</shape>
+<!-- Blob mascot for Nora (noradrenaline). Generated from the Figma design; scales to any size. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    <path android:fillColor="#F2545B" android:pathData="M50.00,2.00 C58.72,2.00 69.00,15.84 76.16,23.84 C83.33,31.84 92.76,41.04 93.00,50.00 C93.24,58.96 84.74,69.91 77.58,77.58 C70.41,85.24 59.19,96.00 50.00,96.00 C40.81,96.00 29.59,85.24 22.42,77.58 C15.26,69.91 6.76,58.96 7.00,50.00 C7.24,41.04 16.67,31.84 23.84,23.84 C31.00,15.84 41.28,2.00 50.00,2.00 Z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M29,45 a8,8 0 1,0 16,0 a8,8 0 1,0 -16,0 M55,45 a8,8 0 1,0 16,0 a8,8 0 1,0 -16,0" />
+    <path android:fillColor="#221B3A" android:pathData="M34.5,46 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0 M57.5,46 a4,4 0 1,0 8,0 a4,4 0 1,0 -8,0" />
+    <path android:fillColor="#221B3A" android:pathData="M46,62 a4,5 0 1,0 8,0 a4,5 0 1,0 -8,0" />
+    <path android:strokeColor="#221B3A" android:strokeWidth="3.2" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M31,33 q5,-4 10,-2 M69,33 q-5,-4 -10,-2" />
+</vector>

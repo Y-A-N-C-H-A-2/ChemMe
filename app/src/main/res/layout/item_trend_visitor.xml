@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One row of "Who showed up most": the character, how many days, and a bar in its own colour. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
+    android:background="@drawable/bg_button_ghost"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/imageMascot"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:importantForAccessibility="no" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textName"
+                style="@style/Text.Label"
+                android:layout_width="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textDays"
+                style="@style/Text.Caption"
+                android:textColor="@color/text_secondary" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progress"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_marginTop="4dp"
+            android:progressDrawable="@drawable/progress_brand" />
+    </LinearLayout>
+</LinearLayout>

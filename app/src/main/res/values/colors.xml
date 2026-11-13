@@ -1,13 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Light theme colours. Names describe the job, not the hue; values-night/colors.xml holds the dark set. -->
 <resources>
-    <color name="orange">#F46524</color>
-    <color name="orange_dark">#D9541A</color>
-    <color name="ink">#1F2933</color>
-    <color name="grey">#6B7280</color>
-    <color name="card">#F3F4F6</color>
-    <color name="white">#FFFFFF</color>
-    <color name="error">#D92D20</color>
-    <color name="success">#1E8E5A</color>
-    <color name="success_background">#E3F5EC</color>
-    <color name="teal">#0F8F87</color>
+    <color name="bg_app">#FFF9F0</color>
+    <color name="bg_surface">#FFFFFF</color>
+    <color name="bg_surface_alt">#F7EFE2</color>
+    <color name="bg_brand">#5B3DF0</color>
+    <color name="bg_brand_soft">#EDE8FF</color>
+    <color name="text_primary">#221B3A</color>
+    <color name="text_secondary">#6B6485</color>
+    <color name="text_on_brand">#FFFFFF</color>
+    <color name="text_brand">#5B3DF0</color>
+    <color name="border_default">#E6DFF5</color>
+    <color name="status_error">#D92D20</color>
+    <color name="status_error_soft">#FDECEA</color>
+    <color name="status_success">#14804A</color>
+    <color name="status_success_soft">#DFF6E9</color>
+    <color name="ripple">#33221B3A</color>
+
+    <!-- One colour per character; the same in light and dark. -->
+    <color name="mascot_sera">#FF7EB6</color>
+    <color name="mascot_dopa">#FF8A3D</color>
+    <color name="mascot_nora">#F2545B</color>
+    <color name="mascot_corty">#A3D139</color>
+    <color name="mascot_gabby">#3CCFA4</color>
+    <color name="mascot_mel">#6F6BE8</color>
+    <color name="mascot_addy">#B79CFF</color>
+    <color name="mascot_sunny">#FFC533</color>
+    <color name="mascot_bea">#4DB8FF</color>
+    <color name="mascot_ferro">#8C9BC4</color>
+    <color name="mascot_thyra">#1FB5C4</color>
+    <color name="mascot_default">#B5ADD1</color>
 </resources>

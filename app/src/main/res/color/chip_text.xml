@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Chip and scale-option text: white-on-brand when selected. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/text_on_brand" android:state_selected="true" />
+    <item android:color="@color/text_primary" />
+</selector>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dark theme colours. Android picks this file automatically when the phone is in dark mode. -->
+<resources>
+    <color name="bg_app">#17132B</color>
+    <color name="bg_surface">#231D3F</color>
+    <color name="bg_surface_alt">#2E2752</color>
+    <color name="bg_brand">#A594FF</color>
+    <color name="bg_brand_soft">#3A2F73</color>
+    <color name="text_primary">#F6F2FF</color>
+    <color name="text_secondary">#B5ADD1</color>
+    <color name="text_on_brand">#17132B</color>
+    <color name="text_brand">#A594FF</color>
+    <color name="border_default">#3B3360</color>
+    <color name="status_error">#FF8A80</color>
+    <color name="status_error_soft">#4A1F1F</color>
+    <color name="status_success">#5EDC9B</color>
+    <color name="status_success_soft">#17382A</color>
+    <color name="ripple">#33FFFFFF</color>
+</resources>

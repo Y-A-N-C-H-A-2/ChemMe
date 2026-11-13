@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Other actions: soft purple. -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android" android:color="@color/ripple">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/bg_brand_soft" />
+            <corners android:radius="26dp" />
+        </shape>
+    </item>
+</ripple>

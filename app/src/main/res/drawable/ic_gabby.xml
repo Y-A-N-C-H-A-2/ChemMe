@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Coloured circle used as the face of one chemical character. -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
-    <solid android:color="#12A594" />
-</shape>
+<!-- Blob mascot for Gabby (GABA). Generated from the Figma design; scales to any size. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    <path android:fillColor="#3CCFA4" android:pathData="M50.00,14.00 C60.82,14.00 74.47,15.36 82.46,21.36 C90.45,27.36 98.06,40.56 97.94,50.00 C97.82,59.44 89.72,71.85 81.73,78.00 C73.74,84.15 60.58,86.90 50.00,86.90 C39.42,86.90 26.26,84.15 18.27,78.00 C10.28,71.85 2.18,59.44 2.06,50.00 C1.94,40.56 9.55,27.36 17.54,21.36 C25.53,15.36 39.18,14.00 50.00,14.00 Z" />
+    <path android:strokeColor="#221B3A" android:strokeWidth="3.2" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M32,46 q6,6 12,0 M56,46 q6,6 12,0" />
+    <path android:strokeColor="#221B3A" android:strokeWidth="3.2" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M43,58 q7,7 14,0" />
+    <path android:fillColor="#FFFFFF" android:fillAlpha="0.4" android:pathData="M24,56 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0 M66,56 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+</vector>

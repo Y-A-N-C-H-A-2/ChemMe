@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Coloured circle used as the face of one chemical character. -->
-<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
-    <solid android:color="#3F51B5" />
-</shape>
+<!-- Blob mascot for Mel (melatonin). Generated from the Figma design; scales to any size. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    <path android:fillColor="#6F6BE8" android:pathData="M50.00,3.00 C58.91,2.76 71.37,11.76 77.37,19.59 C83.37,27.43 85.79,39.63 86.00,50.00 C86.21,60.37 84.64,73.99 78.64,81.82 C72.64,89.65 59.23,97.35 50.00,97.00 C40.77,96.65 29.72,87.53 23.27,79.70 C16.82,71.87 11.19,59.78 11.30,50.00 C11.41,40.22 17.46,28.84 23.91,21.01 C30.36,13.18 41.09,3.24 50.00,3.00 Z" />
+    <path android:strokeColor="#221B3A" android:strokeWidth="3.2" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M32,46 q6,6 12,0 M56,46 q6,6 12,0" />
+    <path android:strokeColor="#221B3A" android:strokeWidth="3.2" android:strokeLineCap="round" android:strokeLineJoin="round" android:pathData="M44,61 h12" />
+    <path android:fillColor="#FFFFFF" android:pathData="M78,20 l2,5 5,2 -5,2 -2,5 -2,-5 -5,-2 5,-2 Z" />
+</vector>

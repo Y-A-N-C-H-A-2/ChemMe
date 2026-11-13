@@ -1,5 +1,5 @@
 /**
- * Screen 7, Settings: the daily reminder, whether location may be used, and clearing all entries.
+ * Settings: the daily reminder, whether location may be used, and clearing all entries.
  */
 package com.example.chemme.ui
 
@@ -11,7 +11,6 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.chemme.R
@@ -37,6 +36,7 @@ class SettingsActivity : BackActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setUpTopBar(binding.topBar, getString(R.string.title_settings))
         prefs = AppPrefs(this)
         scheduler = ReminderScheduler(this)
 
@@ -46,7 +46,7 @@ class SettingsActivity : BackActivity() {
         showReminderTime()
 
         binding.switchReminder.setOnCheckedChangeListener { _, isOn -> onReminderChanged(isOn) }
-        binding.buttonTime.setOnClickListener { pickTime() }
+        binding.rowTime.setOnClickListener { pickTime() }
         binding.switchLocation.setOnCheckedChangeListener { _, isOn -> prefs.useLocation = isOn }
         binding.buttonDeleteAll.setOnClickListener { onDeleteAll() }
     }
@@ -81,22 +81,16 @@ class SettingsActivity : BackActivity() {
     }
 
     private fun showReminderTime() {
-        binding.buttonTime.text =
-            getString(R.string.setting_reminder_time, Format.time(prefs.reminderHour, prefs.reminderMinute))
+        binding.textTime.text = Format.time(prefs.reminderHour, prefs.reminderMinute)
     }
 
     /** Removes every DailyLog (and, through CASCADE, every LogInsight). The library is kept. */
     private fun onDeleteAll() {
-        AlertDialog.Builder(this)
-            .setTitle(R.string.dialog_delete_all_title)
-            .setMessage(R.string.dialog_delete_all_message)
-            .setNegativeButton(R.string.button_cancel, null)
-            .setPositiveButton(R.string.button_delete) { _, _ ->
-                lifecycleScope.launch {
-                    viewModel.deleteAllLogs()
-                    Toast.makeText(this@SettingsActivity, R.string.message_all_deleted, Toast.LENGTH_SHORT).show()
-                }
+        ConfirmDialog.show(this, R.string.dialog_delete_all_title, R.string.dialog_delete_all_message) {
+            lifecycleScope.launch {
+                viewModel.deleteAllLogs()
+                Toast.makeText(this@SettingsActivity, R.string.message_all_deleted, Toast.LENGTH_SHORT).show()
             }
-            .show()
+        }
     }
 }

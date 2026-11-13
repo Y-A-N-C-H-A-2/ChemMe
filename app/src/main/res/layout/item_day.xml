@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One day in the Home week strip: the weekday letter above a circle. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textLetter"
+        style="@style/Text.Caption"
+        android:textColor="@color/text_secondary" />
+
+    <FrameLayout
+        android:id="@+id/circle"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/bg_day_empty">
+
+        <TextView
+            android:id="@+id/textNumber"
+            style="@style/Text.Label"
+            android:layout_gravity="center"
+            android:textColor="@color/text_secondary" />
+
+        <ImageView
+            android:id="@+id/imageCheck"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_gravity="center"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_check"
+            android:visibility="gone"
+            app:tint="@color/text_on_brand" />
+    </FrameLayout>
+</LinearLayout>
